@@ -1,0 +1,9 @@
+<h2>All Categories</h2>
+
+<section id=category_links_area>
+  <% if Category.all %>
+    <% Category.all.each do |category| %>
+      <%= link_to category.title, category_path(category.title), method: 'get' %>
+    <% end %>
+  <% end %>
+</section>

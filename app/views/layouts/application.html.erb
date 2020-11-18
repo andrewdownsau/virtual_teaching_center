@@ -28,6 +28,16 @@
 
     <%= link_to "Home", root_path, method: :get %>
 
+    <section id=category_links_area>
+      <% if Category.all %>
+        <% Category.all.each do |category| %>
+          <%= link_to category.title, category_path(category.title), method: 'get' %>
+        <% end %>
+      <% end %>
+    </section>
+
+    <%= link_to "All Categories", category_index_path %>
+
     <section id=auth_links_area> 
       <% if teacher_signed_in? %>
         <%= link_to "My Profile", teacher_profile_path(current_teacher.id), method: :get %>

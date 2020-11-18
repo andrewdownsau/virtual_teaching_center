@@ -83,3 +83,101 @@ category_list = [
 category_list.each do |title|
   Category.create( title: title )
 end
+
+
+teacher_classes = [
+  {
+    title: 'Building a computer', 
+    description: 'Making your own PC from scratch. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    min_students: 10,
+    max_students: 20,
+    price: 40.0,
+    category_id: 5,
+    teacher_id: 3,
+  },
+  {
+    title: 'Hacking your phone', 
+    description: 'Unlock your phone potential. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    min_students: 5,
+    max_students: 20,
+    price: 60.0,
+    category_id: 5,
+    teacher_id: 3,
+  },
+  {
+    title: 'English in summary', 
+    description: 'Basic language principles. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    min_students: 15,
+    max_students: 30,
+    price: 440.0,
+    category_id: 2,
+    teacher_id: 1,
+  },
+  {
+    title: 'Gramma and the like', 
+    description: 'Proper words and how to use them. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    min_students: 15,
+    max_students: 25,
+    price: 50.0,
+    category_id: 2,
+    teacher_id: 1,
+  },
+  {
+    title: 'Doctors collaborations', 
+    description: 'Research and high-level medical concepts. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    min_students: 5,
+    max_students: 10,
+    price: 600.0,
+    category_id: 5,
+    teacher_id: 5,
+  },
+  {
+    title: 'Robotic surgery', 
+    description: 'How machines could improve modern medicine. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    min_students: 10,
+    max_students: 20,
+    price: 400.0,
+    category_id: 5,
+    teacher_id: 5,
+  },
+  {
+    title: 'Paris', 
+    description: 'Everything you want to know about France. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    min_students: 30,
+    max_students: 50,
+    price: 300.0,
+    category_id: 1,
+    teacher_id: 2,
+  },
+  {
+    title: 'Cooking in french', 
+    description: 'Veux le veux la parle ou francie? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    min_students: 10,
+    max_students: 20,
+    price: 40.0,
+    category_id: 4,
+    teacher_id: 2,
+  },
+  {
+    title: 'Descriete Mathematics', 
+    description: 'Graph theory and the like. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    min_students: 10,
+    max_students: 20,
+    price: 40.0,
+    category_id: 7,
+    teacher_id: 4,
+  },
+  {
+    title: 'Big O notation', 
+    description: 'Notation notation notation. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    min_students: 10,
+    max_students: 20,
+    price: 40.0,
+    category_id: 7,
+    teacher_id: 4,
+  }
+]
+
+teacher_classes.each do |teacher_class|
+  TeacherClass.create!(teacher_class)
+end

@@ -8,7 +8,13 @@
         <p><%= teacher_class.min_students %>-<%= teacher_class.max_students %> students</p>
         <p>Current Enrollments: 0</p>
         <p>Price: $<%= teacher_class.price %>0</p>
-        <p><%= teacher_class.description %></p>
+        <p>
+          <% if teacher_class.description.length > 100 %>
+            <%= teacher_class.description[0..99] %>...
+          <% else %>
+            <%= teacher_class.description %>
+          <% end %>
+        </p>
       </button>
     <% end %>
   <% end %>

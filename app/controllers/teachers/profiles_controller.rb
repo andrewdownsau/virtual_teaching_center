@@ -3,6 +3,11 @@
 class Teachers::ProfilesController < ApplicationController
   # GET /resource/profile/index
   def index
+    if params[:search].present?
+      @teachers = Teacher.where('last_name ILIKE ?', "%#{params[:search][:last_name]}%")
+    else
+      @teachers = Teacher.all
+    end
   end
 
   # GET /resource/profile

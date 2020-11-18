@@ -1,0 +1,10 @@
+  
+<% @teachers.each do |teacher| %>
+  <%= link_to teacher_profile_path(teacher.id) do %>
+    <button id="class_<%= teacher.id %>">
+      <p><%= teacher.title %> <%= teacher.first_name %> <%= teacher.last_name %></p>
+      <p>Country: <%= teacher.country %></p>
+      <p>Primary Language: <%= teacher.primary_language %></p>
+    </button>
+  <% end %>
+<% end %>

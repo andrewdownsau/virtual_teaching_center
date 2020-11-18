@@ -36,6 +36,16 @@
       <% end %>
     </section>
 
+    <p>Virtual Teaching Center</p>
+    <section id=teacher_search_form> 
+      <%= form_with(scope: :search, url: teacher_profiles_index_path, method: 'get', local: true) do |f| %>
+        <%= f.label 'Teacher (Surname):' %>
+        <%= f.text_field :last_name %>
+        <%= f.submit 'Search' %>
+        <%= button_to "All", teacher_profiles_index_path, method: 'get' %>
+      <% end %>
+    </section>
+
     <%= yield %>
   </body>
 </html>

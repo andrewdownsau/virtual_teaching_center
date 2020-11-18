@@ -9,6 +9,7 @@ class TeacherClassesController < ApplicationController
 
   def show
     @teacher_class = TeacherClass.find(params[:id])
+    @teacher = Teacher.find(@teacher_class.teacher_id).title + " " + Teacher.find(@teacher_class.teacher_id).last_name
   end
 
   def new

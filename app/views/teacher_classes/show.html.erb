@@ -2,6 +2,8 @@
 
 <p><%= @teacher_class.description %></p>
 
+<p>Teacher: <%= @teacher %></p>
+
 <p>Minimum class size: <%= @teacher_class.min_students %></p>
 
 <p>Student Enrollments: 0</p>
@@ -13,11 +15,11 @@
 <h2>Lessons</h2>
 
 
-<% if teacher_signed_in? %>
+<% if teacher_signed_in? && current_teacher.teacher_classes.include?(@teacher_class) %>
 
-  <%= button_to "Submit Class Post/Edit", teacher_classes_path, method: 'get' %>
+  <%= button_to "Submit Class Post", teacher_classes_path, method: 'get' %>
 
   <h3>Add Lessons:</h3>
-
-
+<% else %>
+  <%= button_to "Back to Listings", teacher_classes_path, method: 'get' %>
 <% end %>

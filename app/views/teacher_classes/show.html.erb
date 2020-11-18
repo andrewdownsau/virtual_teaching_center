@@ -1,0 +1,23 @@
+<h2><%= @teacher_class.title %></h2>
+
+<p><%= @teacher_class.description %></p>
+
+<p>Minimum class size: <%= @teacher_class.min_students %></p>
+
+<p>Student Enrollments: 0</p>
+
+<p>Maximum Student Enrollments: <%= @teacher_class.max_students %></p>
+
+<p>Price: $<%= @teacher_class.price %>0</p>
+
+<h2>Lessons</h2>
+
+
+<% if teacher_signed_in? %>
+
+  <%= button_to "Submit Class Post/Edit", teacher_classes_path, method: 'get' %>
+
+  <h3>Add Lessons:</h3>
+
+
+<% end %>

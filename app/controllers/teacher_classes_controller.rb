@@ -16,8 +16,8 @@ class TeacherClassesController < ApplicationController
   end
 
   def create
-    @teacher_class = current_teacher.teacher_class.create(teacher_class_params)
-    redirect_to teacher_class_path
+    @teacher_class = current_teacher.teacher_classes.create(teacher_class_params)
+    redirect_to teacher_class_path(@teacher_class)
   end
 
   def edit

@@ -1,0 +1,11 @@
+<h2>Teacher profile</h2>
+
+<strong><%= @teacher.title %> <%= @teacher.first_name %> <%= @teacher.last_name %></strong>
+
+<p><strong>Country:</strong> <%= @teacher.country %></p>
+<p><strong>Primary Language:</strong> <%= @teacher.primary_language %></p>
+<p><strong>Biography:</strong> <%= @teacher.biography %></p>
+
+<% if teacher_signed_in? && current_teacher.id === @teacher.id %>
+  ​<%= link_to "Edit", edit_teacher_registration_path(current_teacher.id) %>
+<% end %>

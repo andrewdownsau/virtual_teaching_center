@@ -68,3 +68,18 @@ teachers = [
 teachers.each do |teacher|
   Teacher.create!(teacher)
 end
+
+
+category_list = [
+    "Art",
+    "Business",
+    "Caring",
+    "Cooking",
+    "Technology",
+    "Housework",
+    "Coding"
+  ]
+
+category_list.each do |title|
+  Category.create( title: title )
+end

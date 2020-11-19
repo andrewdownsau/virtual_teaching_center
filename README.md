@@ -158,7 +158,10 @@ From the ERD I originally built, there was a lot of complication and difficulty 
 Originally: Tasks are tracked and allocated for project planning using Trello Kanban boards. The link to my online project management board is: https://trello.com/c/OT6dxJX2/3-add-readme-documentation
 
 After falling behind in my laid out schedule I decided to work on planning with more agile methods in mind. I started off with a heavy amount of documentation that I wanted to follow to the letter. Eventually I realized that I wouldn't get everything done in time and that I needed to prioritize more effectively, as well as building a core system with core features, and then expanding outward after I have learned more about what I need to do for the project. Below is a spreadsheet that I used to both trim down my list of features to implement as well as illistrate which features are more core to the functionality of the system.
- 
+
 <kbd><img alt="Marketplace Entity Relational Diagram" src="/docs/prioritization_story_list.png" /></kbd>
 
 
+## Access to teachers
+Emails: 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com
+Password is password

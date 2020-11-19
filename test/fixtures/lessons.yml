@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  date: 2020-11-19
+  start_time: 2020-11-19 09:28:45
+  end_time: 2020-11-19 09:28:45
+  teacher_class: one
+
+two:
+  title: MyString
+  description: MyText
+  date: 2020-11-19
+  start_time: 2020-11-19 09:28:45
+  end_time: 2020-11-19 09:28:45
+  teacher_class: two

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_050902) do
+ActiveRecord::Schema.define(version: 2020_11_18_222845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 2020_11_18_050902) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "date"
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "teacher_class_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["teacher_class_id"], name: "index_lessons_on_teacher_class_id"
   end
 
   create_table "teacher_classes", force: :cascade do |t|
@@ -53,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_11_18_050902) do
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lessons", "teacher_classes"
   add_foreign_key "teacher_classes", "categories"
   add_foreign_key "teacher_classes", "teachers"
 end

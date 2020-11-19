@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get '/categories', to: 'categories#index', as: 'category_index'
   get '/categories/:title', to: 'categories#show', as: 'category'
 
-  resources :teacher_classes
+  resources :teacher_classes do
+    resources :lessons
+  end
 
   get '/teachers/profiles', to: 'teachers/profiles#index', as: 'teacher_profiles_index'
   get '/teachers/profiles/:id', to: 'teachers/profiles#show', as: 'teacher_profile'

@@ -12,7 +12,11 @@
 
 <p>Price: $<%= @teacher_class.price %>0</p>
 
-<h2>Lessons</h2>
+<h2>Lessons:</h2>
+<% @teacher_class.lessons.each do |lesson| %>
+  <p><%= lesson.date %>, <%= String(lesson.start_time).split(" ")[1][0..-4] %> - <%= String(lesson.end_time).split(" ")[1][0..-4] %>: <%= lesson.title %></p>
+  <p><%= lesson.description %></p>
+<% end %>
 
 
 <% if teacher_signed_in? && current_teacher.teacher_classes.include?(@teacher_class) %>
@@ -20,6 +24,7 @@
   <%= button_to "Submit Class Post", teacher_classes_path, method: 'get' %>
 
   <h3>Add Lessons:</h3>
+  <%= render './lessons/new'  %>
 <% else %>
   <%= button_to "Back to Listings", teacher_classes_path, method: 'get' %>
 <% end %>

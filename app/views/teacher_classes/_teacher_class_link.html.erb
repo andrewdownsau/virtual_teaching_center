@@ -3,7 +3,17 @@
   <% @teacher_classes.each do |teacher_class| %>
     <%= link_to teacher_class_path(teacher_class.id) do %>
       <button id="class_<%= teacher_class.id %>">
-        <p><%= teacher_class.title %> (Lessons TBA)</p>
+        <p>
+          <%= teacher_class.title %> (
+          <% if teacher_class.lessons.first %>
+            <%= teacher_class.lessons.first.date %>
+            <% if teacher_class.lessons.length > 1 %>
+             - <%= teacher_class.lessons.last.date %>
+            <% end %>
+          <% else %>
+            Lessons TBA
+          <% end %> 
+      )</p>
         <p><%= Teacher.find(teacher_class.teacher_id).title %> <%= Teacher.find(teacher_class.teacher_id).last_name %></p>
         <p><%= teacher_class.min_students %>-<%= teacher_class.max_students %> students</p>
         <p>Current Enrollments: 0</p>

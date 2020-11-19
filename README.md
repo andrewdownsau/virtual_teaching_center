@@ -161,7 +161,3 @@ After falling behind in my laid out schedule I decided to work on planning with 
 
 <kbd><img alt="Marketplace Entity Relational Diagram" src="/docs/prioritization_story_list.png" /></kbd>
 
-
-## Access to teachers
-Emails: 1@test.com, 2@test.com, 3@test.com, 4@test.com, 5@test.com
-Password is password

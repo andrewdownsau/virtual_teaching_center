@@ -1,31 +1,32 @@
 
 <% if @teacher_classes %>
   <% @teacher_classes.each do |teacher_class| %>
-    <%= link_to teacher_class_path(teacher_class.id) do %>
-      <button id="class_<%= teacher_class.id %>">
-        <p>
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-title">
           <%= teacher_class.title %> (
           <% if teacher_class.lessons.first %>
             <%= teacher_class.lessons.first.date %>
             <% if teacher_class.lessons.length > 1 %>
-             - <%= teacher_class.lessons.last.date %>
+              - <%= teacher_class.lessons.last.date %>
             <% end %>
           <% else %>
             Lessons TBA
-          <% end %> 
-      )</p>
-        <p><%= Teacher.find(teacher_class.teacher_id).title %> <%= Teacher.find(teacher_class.teacher_id).last_name %></p>
-        <p><%= teacher_class.min_students %>-<%= teacher_class.max_students %> students</p>
-        <p>Current Enrollments: 0</p>
-        <p>Price: $<%= teacher_class.price %>0</p>
-        <p>
-          <% if teacher_class.description.length > 100 %>
-            <%= teacher_class.description[0..99] %>...
+          <% end %> )
+        </p>
+        <p class="card-title">Teacher: <%= Teacher.find(teacher_class.teacher_id).title %> <%= Teacher.find(teacher_class.teacher_id).last_name %></p>
+        <p class="card-text">
+          <% if teacher_class.description.length > 50 %>
+            <%= teacher_class.description[0..49] %>...
           <% else %>
             <%= teacher_class.description %>
           <% end %>
         </p>
-      </button>
-    <% end %>
+        <a href=<%= teacher_class_path(teacher_class.id) %> class="btn btn-primary">View Class</a>
+      </div>
+    </div>
   <% end %>
 <% end %>
+
+

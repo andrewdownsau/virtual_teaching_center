@@ -181,3 +181,90 @@ teacher_classes = [
 teacher_classes.each do |teacher_class|
   TeacherClass.create!(teacher_class)
 end
+
+lessons = [
+  {
+    title: 'Basic Components', 
+    description: 'Making your own PC from scratch, starting with components. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    date: '2020-11-27',
+    start_time: '2000-01-01 09:00:00',
+    end_time: '2000-01-01 11:00:00',
+    teacher_class_id: 1,
+  },
+  {
+    title: 'CPU and GPU', 
+    description: 'The biggest decisions to make. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    date: '2020-11-28',
+    start_time: '2000-01-01 09:00:00',
+    end_time: '2000-01-01 11:00:00',
+    teacher_class_id: 1,
+  },
+  {
+    title: 'The alphabet', 
+    description: 'ABCs. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    date: '2020-12-12',
+    start_time: '2000-01-01 14:00:00',
+    end_time: '2000-01-01 17:00:00',
+    teacher_class_id: 3,
+  },
+  {
+    title: 'The sentence', 
+    description: 'Not so great at them yet myself. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    date: '2020-12-24',
+    start_time: '2000-01-01 11:00:00',
+    end_time: '2000-01-01 13:00:00',
+    teacher_class_id: 3,
+  },
+  {
+    title: 'Proper use of gramma workshop', 
+    description: 'One off tutorial. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    date: '2020-12-02',
+    start_time: '2000-01-01 10:00:00',
+    end_time: '2000-01-01 16:00:00',
+    teacher_class_id: 4,
+  },
+  {
+    title: 'Live robo surgery demo', 
+    description: 'One off tutorial. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    date: '2020-12-25',
+    start_time: '2000-01-01 12:00:00',
+    end_time: '2000-01-01 22:00:00',
+    teacher_class_id: 6,
+  },
+  {
+    title: 'Base numbers', 
+    description: 'Base 10 is not all there is. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    date: '2020-12-01',
+    start_time: '2000-01-01 12:00:00',
+    end_time: '2000-01-01 14:00:00',
+    teacher_class_id: 9,
+  },
+  {
+    title: 'Tree and graphs', 
+    description: 'Basic graph theory. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    date: '2020-12-02',
+    start_time: '2000-01-01 12:00:00',
+    end_time: '2000-01-01 14:00:00',
+    teacher_class_id: 9,
+  },
+  {
+    title: 'Matrixies', 
+    description: 'Arythmatic of sets. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    date: '2020-12-03',
+    start_time: '2000-01-01 12:00:00',
+    end_time: '2000-01-01 14:00:00',
+    teacher_class_id: 9,
+  },
+  {
+    title: 'Big O tutorial', 
+    description: 'One off tutorial. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non pulvinar dui, nec placerat leo. Donec eget pulvinar turpis, id viverra risus. Donec ipsum lacus, bibendum in hendrerit non, porttitor quis eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque quis nisl purus. Donec faucibus sodales ante ut pharetra. Nunc facilisis accumsan est in interdum. Pellentesque euismod ultrices sapien vel consectetur. Fusce porttitor feugiat dolor, fermentum placerat metus sodales sed. In nec orci nisi. ', 
+    date: '2020-12-06',
+    start_time: '2000-01-01 10:00:00',
+    end_time: '2000-01-01 15:00:00',
+    teacher_class_id: 10,
+  }
+]
+
+lessons.each do |lesson|
+  Lesson.create!(lesson)
+end

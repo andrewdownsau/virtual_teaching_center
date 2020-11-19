@@ -2,6 +2,10 @@ class TeacherClassesController < ApplicationController
   def index
     if params[:search].present?
       @teacher_classes = TeacherClass.where('title ILIKE ?', "%#{params[:search][:title]}%")
+      if params[:search][:last_name].present?
+        @teacher = Teacher.where('last_name ILIKE ?', "%#{params[:search][:last_name]}%").first
+        @teacher_classes = TeacherClass.where('title ILIKE ? AND teacher_id = ?', "%#{params[:search][:title]}%", @teacher.id)
+      end
     else
       @teacher_classes = TeacherClass.all
     end

@@ -10,7 +10,6 @@
   </head>
 
   <body>
-
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -18,57 +17,8 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-    <% if teacher_signed_in? %>
-      <p class="welcome">
-        Welcome 
-        <%= current_teacher.title %> 
-        <%= current_teacher.last_name.capitalize() %>
-      </p>
-    <% end %>
-
-    <%= link_to "Home", root_path, method: :get %>
-
-    <section id=category_links_area>
-      <% if Category.all %>
-        <% Category.all.each do |category| %>
-          <%= link_to category.title, category_path(category.title), method: 'get' %>
-        <% end %>
-      <% end %>
-    </section>
-
-    <%= link_to "All Categories", category_index_path %>
-
-    <% if teacher_signed_in? %>
-      <%= link_to "Add Class", new_teacher_class_path %>
-    <% end %>
-
-    <section id=auth_links_area> 
-      <% if teacher_signed_in? %>
-        <%= link_to "My Profile", teacher_profile_path(current_teacher.id), method: :get %>
-        <%= link_to "Logout", destroy_teacher_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Register", new_teacher_registration_path %>
-        <%= link_to "Login", new_teacher_session_path %>
-      <% end %>
-    </section>
-
-    <p>Virtual Teaching Center</p>
-    <section id=class_search_form> 
-      <%= form_with(scope: :search, url: teacher_classes_path, method: 'get', local: true) do |f| %>
-        <%= f.label "Class:" %>
-        <%= f.text_field :title %>
-        <%= f.submit 'Search' %>
-        <%= button_to "All", teacher_classes_path, method: 'get' %>
-      <% end %>
-    </section>
-    <section id=teacher_search_form> 
-      <%= form_with(scope: :search, url: teacher_profiles_index_path, method: 'get', local: true) do |f| %>
-        <%= f.label 'Teacher (Surname):' %>
-        <%= f.text_field :last_name %>
-        <%= f.submit 'Search' %>
-        <%= button_to "All", teacher_profiles_index_path, method: 'get' %>
-      <% end %>
-    </section>
+    <%= render './layouts/navigation_header' %>
+    <%= render './layouts/class_teacher_search' %>
 
     <%= yield %>
   </body>

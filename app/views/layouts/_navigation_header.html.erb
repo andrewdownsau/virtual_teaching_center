@@ -13,26 +13,25 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
-      <% if Category.limit(4) %>
-        <% Category.limit(4).each do |category| %>
+      <% if @categories %>
+        <% @categories.limit(4).each do |category| %>
           <li class="nav-item">
             <a class="nav-link" href=<%= category_path(category.title) %>><%= category.title %></a>
           </li>
         <% end %>
-      <% end %>
-      
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          More...
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <% if Category.all.length > 4 %>
-            <% Category.all.drop(4).each do |category| %>
-              <a class="dropdown-item" href=<%= category_path(category.title) %>><%= category.title %></a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More...
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <% if @categories.length > 4 %>
+              <% @categories.drop(4).each do |category| %>
+                <a class="dropdown-item" href=<%= category_path(category.title) %>><%= category.title %></a>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      </li>
+          </div>
+        </li>
+      <% end %>
       <li><pre>     </pre></li>
       <% if teacher_signed_in? %>
         <li class="nav-item">

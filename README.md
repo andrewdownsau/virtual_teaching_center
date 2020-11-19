@@ -120,63 +120,45 @@ https://www.gloomaps.com/vqQKgzCzCq
 <kbd><img alt="Wireframe User Profile (Teacher)" src="/docs/MVP_User_Profile_(Teacher).png" /></kbd>
 <kbd><img alt="Wireframe My Account Page" src="/docs/MVP_My_Account_Page.png" /></kbd>
 
-## Entity Relational Diagram
+## Entity Relational Diagram (original design)
 <kbd><img alt="Marketplace Entity Relational Diagram" src="/docs/MVP_Marketplace_ERD.png" /></kbd>
 
 ## High-level components for the application
-- Navigation menu header
-- Search form for classes, students and teachers
-- Cover page image
-- Featured classes auto-scroll reel
-- Class cards for gallery postings
-- Sorting cards-by system
-- Sitemap links footer with social media/copyright
-- Class pages that include sessions, teacher and reviews
-- Teacher/Student profile pages that include schedule, details and reviews
-- Personal account dashboard for accessing classes, teaching, messages and admin
-- About/Help pages with information on website
+- Device authentication was used to utilize user sessions and registrations to allow personal access to data and posted information that they own
+- Action controller base permitted the parameters for my models, and redirected the routing mechanisms for internal view links
+- Active record base are abstracted functions that rails uses to implement basic CRUD functionality to models in it's database as long as the parameters match up correctly
+- Active storage utilizes the database to create a sql framework for uploading images into the host rails server. A large amount of functionality is abstracted through this system, even more so than active record because the models are even standard as part of it. 
 
 ## Third-party services
 For the scope of my project, I was only able to use heroku as a third party service to deploy my web application online. My understanding is that heroku utilizes the functionality of ruby on rails in the same way that my local terminal runs a rails server routed through the route resources, models and controllers which then output the required views. This means that in order to operate, heroku must apply the same installation methods for their applications to run. For example, to have a working database with the required models/seed data, the commands for db:migrate and db:seed must be applied for the site to run.
 
 
 ## Model Associations Framework
-1. Users
-    - has_one Student
-    - has_one Teacher
-    - has_many Reviews
-    - has_many Message_Threads
-2. Students
-    - belongs_to Users
-    - has_one Review_Route
-    - has_many Enrollments
-3. Teachers
-    - belongs_to Users
-    - has_one Review_Route
-    - has_many Classes
-4. Categories
-    - has_many Classes
-5. Classes
-    - belongs_to Teacher, Categories
-    - has_one Review_Route
-    - has_many Sessions
-6. Sessions
-    - belongs_to Classes
-    - has_many Enrollments
-7. Enrollments
-    - belongs_to Sessions, Students
-8. Review_Routes
-    - belongs_to Classes, Teachers, Students
-    - has_many Reviews
-9. Reviews
-    - belongs_to Review_Router, Users
-10. Message_Threads
-    - belongs_to Users
-    - has_many Messages
-11. Messages
-    - belongs_to Message_Threads
+1. Teacher
+    - devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+    - has_many :teacher_classes
+2. Category
+    - has_many :teacher_classes
+3. TeacherClass
+    - belongs_to :category
+    - belongs_to :teacher
+    - has_many :lessons, dependent: :destroy
+    - accepts_nested_attributes_for :lessons
+    - has_one_attached :image
+4. Lesson
+    - belongs_to :teacher_class
+
+## Implementation of database relations
+
+From the ERD I originally built, there was a lot of complication and difficulty in understanding exactly how to implement a system with not only two types of users but also a number of features that could be accessed by either/both of them. Because of this I opted to focusing entirely on building a devise system for teachers initially with the thought that I would eventually build a second authentication system for students to enroll in the teacher's classes. I also changed how classes would also have to access uploaded images with ActiveStorage and that required more consideration for my relations.
 
 
 ## Task Allocation and tracking 
 
-Tasks are tracked and allocated for project planning using Trello Kanban boards. The link to my online project management board is: https://trello.com/c/OT6dxJX2/3-add-readme-documentation
+Originally: Tasks are tracked and allocated for project planning using Trello Kanban boards. The link to my online project management board is: https://trello.com/c/OT6dxJX2/3-add-readme-documentation
+
+After falling behind in my laid out schedule I decided to work on planning with more agile methods in mind. I started off with a heavy amount of documentation that I wanted to follow to the letter. Eventually I realized that I wouldn't get everything done in time and that I needed to prioritize more effectively, as well as building a core system with core features, and then expanding outward after I have learned more about what I need to do for the project. Below is a spreadsheet that I used to both trim down my list of features to implement as well as illistrate which features are more core to the functionality of the system.
+ 
+<kbd><img alt="Marketplace Entity Relational Diagram" src="/docs/prioritization_story_list.png" /></kbd>
+
+

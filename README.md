@@ -41,6 +41,10 @@ https://www.gloomaps.com/vqQKgzCzCq
 
 
 ### Screenshots
+<kbd><img alt="Screenshot Home" src="/docs/screenshot_home.png" /></kbd>
+<kbd><img alt="Screenshot Category Classes" src="/docs/screenshot_classes_list.png" /></kbd>
+<kbd><img alt="Screenshot Class Advert Page" src="/docs/screenshot_class_ad.png" /></kbd>
+<kbd><img alt="Screenshot User Profile (Teacher)" src="/docs/screenshot_profile_teacher.png" /></kbd>
 
 ### Tech stack
 - Front end web development (HTML, CSS, Javascript)
@@ -116,16 +120,10 @@ https://www.gloomaps.com/vqQKgzCzCq
 <kbd><img alt="Wireframe User Profile (Teacher)" src="/docs/MVP_User_Profile_(Teacher).png" /></kbd>
 <kbd><img alt="Wireframe My Account Page" src="/docs/MVP_My_Account_Page.png" /></kbd>
 
-## Screenshots
-<kbd><img alt="Screenshot Home" src="/docs/screenshot_home.png" /></kbd>
-<kbd><img alt="Screenshot Category Classes" src="/docs/screenshot_classes_list.png" /></kbd>
-<kbd><img alt="Screenshot Class Advert Page" src="/docs/screenshot_class_ad.png" /></kbd>
-<kbd><img alt="Screenshot User Profile (Teacher)" src="/docs/screenshot_profile_teacher.png" /></kbd>
-
 ## Entity Relational Diagram
 <kbd><img alt="Marketplace Entity Relational Diagram" src="/docs/MVP_Marketplace_ERD.png" /></kbd>
 
-## High-level view components
+## High-level components for the application
 - Navigation menu header
 - Search form for classes, students and teachers
 - Cover page image
@@ -139,9 +137,7 @@ https://www.gloomaps.com/vqQKgzCzCq
 - About/Help pages with information on website
 
 ## Third-party services
-This might really just be a fudge at this point, while ideally I would want to utilize a video chat system so that classes can be conducted in the website itself, I'm not yet sure if I'll be able to incorporate it in the scope of the project.
-
-There is also utilizing a payment system with paypal, this is MVP as it will allow for the marketplace to accept payments. (For now, just limiting to legal currency, no internal credits system).
+For the scope of my project, I was only able to use heroku as a third party service to deploy my web application online. My understanding is that heroku utilizes the functionality of ruby on rails in the same way that my local terminal runs a rails server routed through the route resources, models and controllers which then output the required views. This means that in order to operate, heroku must apply the same installation methods for their applications to run. For example, to have a working database with the required models/seed data, the commands for db:migrate and db:seed must be applied for the site to run.
 
 
 ## Model Associations Framework

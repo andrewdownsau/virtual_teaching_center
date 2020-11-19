@@ -1,4 +1,6 @@
 class TeacherClassesController < ApplicationController
+  before_action :find_class, except: [:create, :index, :new]
+
   def index
     if params[:search].present?
       @teacher_classes = TeacherClass.where('title ILIKE ?', "%#{params[:search][:title]}%")
@@ -12,7 +14,6 @@ class TeacherClassesController < ApplicationController
   end
 
   def show
-    @teacher_class = TeacherClass.find(params[:id])
     @teacher = Teacher.find(@teacher_class.teacher_id).title + " " + Teacher.find(@teacher_class.teacher_id).last_name
   end
 
@@ -26,12 +27,9 @@ class TeacherClassesController < ApplicationController
   end
 
   def edit
-    @teacher_class = TeacherClass.find(params[:id])
   end
 
   def update
-    @teacher_class = TeacherClass.find(params[:id])
- 
 		if @teacher_class.update(teacher_class_params)
 			redirect_to @teacher_class
 		else
@@ -40,7 +38,6 @@ class TeacherClassesController < ApplicationController
   end
 
   def destroy
-    @teacher_class = TeacherClass.find(params[:id])
 		@teacher_class.destroy
  
 		redirect_to teacher_profile_path(Teacher.find(@teacher_class.teacher_id))
@@ -50,5 +47,10 @@ class TeacherClassesController < ApplicationController
 
   def teacher_class_params
     params.require(:teacher_class).permit(:title, :category_id, :description, :min_students, :max_students, :price, :image)
+  end
+
+  def find_class
+    # Teacher class is queried once per action
+    @teacher_class = TeacherClass.find(params[:id])
   end
 end

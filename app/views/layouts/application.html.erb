@@ -10,16 +10,19 @@
   </head>
 
   <body>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+    <header>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
 
-    <%= render './layouts/navigation_header' %>
-    <%= render './layouts/class_teacher_search' %>
-
-    <%= yield %>
+      <%= render './layouts/navigation_header' %>
+      <%= render './layouts/class_teacher_search' %>
+    </header>
+    <section class="content_area">
+      <%= yield %>
+    </section>
   </body>
 </html>

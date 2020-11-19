@@ -16,6 +16,11 @@
   </div>
 
   <div class="field">
+    <%= f.label "Images:" %><br />
+    <%= f.file_field :image %>
+  </div><br />
+
+  <div class="field">
     <%= f.label :min_students %><br />
     <%= f.number_field :min_students, autofocus: true %>
   </div>

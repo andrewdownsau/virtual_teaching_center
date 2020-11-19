@@ -1,4 +1,10 @@
-<h2><%= @teacher_class.title %></h2>
+<h4><%= @teacher_class.title %></h4>
+
+<% if @teacher_class.image.attached? %>
+  <div class="class_image">
+    <%= image_tag @teacher_class.image, class: "image" %>
+  </div>
+<% end %>
 
 <p><%= @teacher_class.description %></p>
 
@@ -12,7 +18,7 @@
 
 <p>Price: $<%= @teacher_class.price %>0</p>
 
-<h2>Lessons:</h2>
+<h4>Lessons:</h4>
 <% @teacher_class.lessons.each do |lesson| %>
   <p><%= lesson.date %>, <%= String(lesson.start_time).split(" ")[1][0..-4] %> - <%= String(lesson.end_time).split(" ")[1][0..-4] %>: <%= lesson.title %></p>
   <p><%= lesson.description %></p>
@@ -29,7 +35,8 @@
   <%= button_to "Edit", edit_teacher_class_path, method: 'get' %>
   <%= button_to "Delete", teacher_class_path, method: 'delete' %>
 
-  <h3>Add Lessons:</h3>
+  <br />
+  <h4>Add Lessons:</h4>
   <%= render './lessons/lesson_form', model: [@teacher_class,  @teacher_class.lessons.build], button: "Add lesson" %>
 
 <% else %>

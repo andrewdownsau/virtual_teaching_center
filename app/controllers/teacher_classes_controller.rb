@@ -22,7 +22,24 @@ class TeacherClassesController < ApplicationController
   end
 
   def edit
+    @teacher_class = TeacherClass.find(params[:id])
+  end
 
+  def update
+    @teacher_class = TeacherClass.find(params[:id])
+ 
+		if @teacher_class.update(teacher_class_params)
+			redirect_to @teacher_class
+		else
+			render 'edit'
+		end
+  end
+
+  def destroy
+    @teacher_class = TeacherClass.find(params[:id])
+		@teacher_class.destroy
+ 
+		redirect_to teacher_profile_path(Teacher.find(@teacher_class.teacher_id))
   end
 
   private

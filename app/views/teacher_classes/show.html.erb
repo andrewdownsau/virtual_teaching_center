@@ -16,15 +16,22 @@
 <% @teacher_class.lessons.each do |lesson| %>
   <p><%= lesson.date %>, <%= String(lesson.start_time).split(" ")[1][0..-4] %> - <%= String(lesson.end_time).split(" ")[1][0..-4] %>: <%= lesson.title %></p>
   <p><%= lesson.description %></p>
+  <% if teacher_signed_in? && current_teacher.teacher_classes.include?(@teacher_class) %>
+    <%= button_to "Edit", edit_teacher_class_lesson_path(@teacher_class.id, lesson.id), method: 'get' %>
+    <%= button_to "Delete", teacher_class_lesson_path(@teacher_class.id, lesson.id), method: 'delete' %>
+  <% end %>
 <% end %>
 
 
 <% if teacher_signed_in? && current_teacher.teacher_classes.include?(@teacher_class) %>
-
-  <%= button_to "Submit Class Post", teacher_classes_path, method: 'get' %>
+  <strong>Submit the entire class, edit or delete.</strong>
+  <%= button_to "Submit", teacher_classes_path, method: 'get' %>
+  <%= button_to "Edit", edit_teacher_class_path, method: 'get' %>
+  <%= button_to "Delete", teacher_class_path, method: 'delete' %>
 
   <h3>Add Lessons:</h3>
-  <%= render './lessons/new'  %>
+  <%= render './lessons/lesson_form', model: [@teacher_class,  @teacher_class.lessons.build], button: "Add lesson" %>
+
 <% else %>
   <%= button_to "Back to Listings", teacher_classes_path, method: 'get' %>
 <% end %>

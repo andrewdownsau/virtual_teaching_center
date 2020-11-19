@@ -13,6 +13,7 @@ class Teachers::ProfilesController < ApplicationController
   # GET /resource/profile
   def show
     @teacher = Teacher.where(id: params[:id]).first
+    @teacher_classes = TeacherClass.where(teacher_id: params[:id])
   end
 
   # protected

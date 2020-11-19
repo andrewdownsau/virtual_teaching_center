@@ -9,3 +9,7 @@
 <% if teacher_signed_in? && current_teacher.id === @teacher.id %>
   ​<%= link_to "Edit", edit_teacher_registration_path(current_teacher.id) %>
 <% end %>
+
+<section id='teacher_classes_in_profile'>
+  <%= render './teacher_classes/teacher_class_link' %>
+</section>

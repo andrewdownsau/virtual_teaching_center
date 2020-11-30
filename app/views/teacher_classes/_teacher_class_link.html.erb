@@ -3,15 +3,17 @@
   <% @teacher_classes.each do |teacher_class| %>
     <div class="card_container">
       <div class="card" style="width: 18rem;">
-        <% if teacher_class.image.attached? %>
-          <%= image_tag teacher_class.image, class: "card-img-top" %>
-        <% else %>
-          <img src="..." class="card-img-top" alt="...">
-        <% end %>
+        <div class="card_image">
+          <% if teacher_class.image.attached? %>
+            <%= image_tag teacher_class.image, class: "card-img-top" %>
+          <% else %>
+            <%= image_tag "clip_art_university.png", class: "card-img-top" %>
+          <% end %>
+        </div>
         <div class="card-body">
           <p class="card-title">
-            <%= teacher_class.title %> (
-            <% if teacher_class.lessons.first %>
+            <%= teacher_class.title %><br />
+            (<% if teacher_class.lessons.first %>
               <%= teacher_class.lessons.first.date %>
               <% if teacher_class.lessons.length > 1 %>
                 - <%= teacher_class.lessons.last.date %>

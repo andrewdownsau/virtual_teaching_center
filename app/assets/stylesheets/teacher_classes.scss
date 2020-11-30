@@ -9,8 +9,26 @@
 
 .card {
   min-height: 270px;
+  margin: 5px;
 }
 
 .card_container {
   display: inline-block;
+}
+
+.card_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: calc(100% - 10px);
+  height: 180px;
+  margin: 5px;
+  border: solid 1px #AAA;
+  border-radius: 5%;
+}
+
+.card_image img{
+  height: 100%;
+  width: auto;
 }
